@@ -18,7 +18,7 @@ class CounterGenerator():
     '''A fast numeric batch generator'''
 
     attr_name = StringProperty(default='sim', title='Simulated Attribute')
-    attr_value = ObjectProperty(Value, title='Simulated Value')
+    attr_value = ObjectProperty(Value, title='Simulated Value', default=Value())
 
     def __init__(self):
         super().__init__()
