@@ -5,7 +5,9 @@ from .generators.file import FileGenerator
 from .triggers.interval import IntervalTrigger
 from .triggers.safe import SafeTrigger
 from .triggers.cron import CronTrigger
+from .triggers.command import CommandTrigger
 from nio import Block, discoverable
+from nio.command import command
 from nio.properties.version import VersionProperty
 
 
@@ -53,6 +55,15 @@ class IdentityCronSimulator(
         MultipleSignals,
         IdentityGenerator,
         CronTrigger,
+        Block):
+
+    version = VersionProperty('0.1.0')
+
+@command("simulate")
+@discoverable
+class IdentityCommandSimulator(
+        IdentityGenerator,
+        CommandTrigger,
         Block):
 
     version = VersionProperty('0.1.0')
